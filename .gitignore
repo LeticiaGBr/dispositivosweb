@@ -1,1 +1,17 @@
 /.metadata/
+
+.gradle/
+
+**/local.properties
+
+.idea/
+
+*.iml
+
+**/gradle-daemon-jvm.properties
+
+**/build/
+
+.DS_Store
+
+Thumbs.db
