@@ -1,2 +1,2 @@
 # ADS
-# Repósitorio destinado as atividades e exercicios da terceira fase do curso de Análise e desenvolvimento de sistemas
+# Repósitorio destinado as atividades e exercicios do curso de Análise e desenvolvimento de sistemas
