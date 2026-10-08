@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ficha de Personagem — Orion</title>
+<style>
+:root{--ink:#16130f;--red:#6e1414;--gold:#a8842c;--paper:#f7f3e8;--grey:#4a4640;--line:#8a8478}
+*{box-sizing:border-box}
+body{margin:0;background:#3a3732;font-family:Georgia,"Palatino Linotype",serif;color:var(--ink);font-size:11pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;min-height:297mm;margin:8mm auto;background:var(--paper);padding:12mm 12mm 16mm;position:relative;border:1.5px solid var(--ink);outline:1px solid var(--gold);outline-offset:-6px}
+.run{display:flex;justify-content:space-between;font-size:8.5pt;color:var(--grey);border-bottom:1px solid var(--gold);padding-bottom:1.5mm;margin-bottom:4mm}
+.pn{position:absolute;bottom:7mm;left:0;right:0;text-align:center;font-size:8.5pt;color:var(--grey)}
+h1{font-size:25pt;margin:0 0 3mm;text-align:center;letter-spacing:3px;color:var(--red)}
+h2{margin:5mm 0 2.5mm;padding:1.5mm 3mm;background:var(--ink);color:#e6c870;font-size:13pt;letter-spacing:2px;border-left:6px solid var(--red);break-after:avoid}
+h3{margin:3mm 0 1.5mm;font-size:11pt;color:var(--red);border-bottom:1px solid var(--gold);break-after:avoid}
+.orn{text-align:center;color:var(--gold);letter-spacing:6px;margin:0 0 3mm;font-size:10pt}
+input,textarea,select{font:inherit;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);width:100%;padding:1px 2px;outline:0}
+input:focus,textarea:focus{background:#fffbe6}
+textarea{resize:none;border:1px solid var(--line);padding:2mm;line-height:1.35;display:block}
+label{font-size:8.5pt;color:var(--grey);display:block}
+.g{display:grid;gap:3mm}.c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}
+.id{border:2px solid var(--ink);padding:3mm;background:#efe8d4}
+.id input{font-size:13pt;font-weight:bold}
+.attr{border:2px solid var(--ink);text-align:center;padding:2mm;background:#fff}
+.attr b{display:block;font-size:11pt;color:var(--red)}
+.attr input{height:15mm;font-size:24pt;text-align:center;border:1px dashed var(--line);margin-top:1mm}
+.res{border:1.5px solid var(--ink);padding:2mm 3mm;background:#fff;border-radius:2mm}
+.res b{font-size:10.5pt;color:var(--red)}
+.res .v{display:flex;align-items:center;gap:2mm;font-size:18pt}
+.res input{height:11mm;font-size:17pt;text-align:center;border:1px dashed var(--line)}
+.lv{border:1.5px solid var(--ink);margin-bottom:4mm;break-inside:avoid;background:#fff}
+.lv>.t{background:var(--grey);color:#fff;padding:1mm 3mm;font-weight:bold;letter-spacing:1px}
+.lv .in{padding:2.5mm}
+.hab{border:1px solid var(--line);padding:2mm;margin-bottom:2.5mm;background:#faf7ee}
+.hab .r{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3mm;margin-bottom:2mm}
+.hab input{font-weight:bold}
+.vs{border:3px double var(--red);padding:4mm;background:#1c1a17;color:#efe6cf;break-inside:avoid}
+.vs h2{background:var(--red);color:#fff;margin:-4mm -4mm 3mm;border-left:0;text-align:center;font-size:16pt}
+.vs label,.vs b{color:#e6c870}.vs textarea,.vs input{color:#efe6cf;border-color:#8a7a50}
+.vs .pill{border:1px solid #e6c870;padding:2mm;text-align:center}
+.vs .pill i{display:block;font-style:normal;font-size:15pt;color:#fff}
+table{width:100%;border-collapse:collapse;break-inside:auto}
+tr{break-inside:avoid}
+th{background:var(--ink);color:#e6c870;padding:2mm;text-align:left;font-size:10pt}
+td{border:1px solid var(--ink);padding:1.5mm 2mm;vertical-align:top;font-size:10pt;background:#fff;height:12mm}
+td:first-child{font-weight:bold;background:#efe8d4;width:30%}
+td input{border:0;font-size:10pt}
+.nem{border:4px double var(--ink);padding:4mm;background:#fff;break-inside:avoid;margin-bottom:4mm}
+.nem h2{background:var(--red);color:#fff;text-align:center;margin:-4mm -4mm 3mm;border-left:0;font-size:14pt;letter-spacing:1px}
+.nem .m{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-bottom:3mm}
+.nem .m div{border:1px solid var(--ink);padding:2mm}
+.nem h3::before{content:"✠ "}
+.nem p,.vs p{margin:1.5mm 0;line-height:1.4}
+.nem ul{margin:1mm 0 2mm;padding-left:6mm;line-height:1.4}
+.inv{display:grid;gap:2mm;margin-bottom:3mm}
+.slot{border:2px solid var(--ink);background:#fff;height:27mm;position:relative;display:flex;flex-direction:column;box-shadow:inset 0 0 0 2px #d8d0b8}
+.slot.big{height:36mm}.slot.wide{grid-column:span 2}
+.slot .q{position:absolute;top:1mm;right:1mm;width:11mm;height:6mm;border:1px solid var(--ink);text-align:center;font-size:9pt;background:#efe8d4;padding:0}
+.slot .n{margin-top:auto;border:0;border-top:1px solid var(--line);font-size:8.5pt;height:6.5mm;background:#efe8d4}
+.slot .d{border:0;flex:1;padding:1mm 12mm 0 1.5mm;font-size:8.5pt;line-height:1.2}
+.slot.item .d{padding-right:12mm}
+.sec-eq{display:grid;grid-template-columns:repeat(4,1fr);gap:2mm}
+.coin{display:flex;gap:6mm;align-items:end}
+.lines textarea{border:0;background:repeating-linear-gradient(transparent 0 7.2mm,var(--line) 7.2mm 7.7mm);line-height:7.7mm;padding:0 2mm;width:100%}
+.grid textarea{border:1px solid var(--line);background:linear-gradient(var(--line) 1px,transparent 1px) 0 0/5mm 5mm,linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/5mm 5mm;line-height:5mm;padding:0 1mm}
+.myst{border-left:4px solid var(--red);padding:2mm 3mm;margin-bottom:3mm;background:#fff;break-inside:avoid;font-style:italic;line-height:1.45}
+.myst b{font-style:normal;color:var(--red)}
+.tools{position:fixed;top:6px;right:6px;z-index:9}
+.tools button{padding:6px 12px;font:inherit;cursor:pointer}
+@page{size:A4;margin:0}
+@media print{
+body{background:none}
+.page{margin:0;border:0;outline:1px solid var(--gold);outline-offset:-5mm;break-after:page;width:210mm;height:297mm;min-height:0;overflow:hidden}
+.page:last-child{break-after:auto}
+.tools{display:none}
+input,textarea{border-color:#555}
+textarea{overflow:hidden}
+}
+</style>
+</head>
+<body>
+<div class="tools"><button onclick="window.print()">🖨 Imprimir</button></div>
+
+<!-- PÁGINA 1 -->
+<section class="page">
+<div class="run"><span>✠ Ficha de Personagem — <span class="hn">________</span></span><span>Fantasia sombria</span></div>
+<h1>FICHA DE PERSONAGEM</h1>
+<div class="orn">⸻ ✠ ⸻</div>
+
+<h2>⚔ Identidade do personagem</h2>
+<div class="id g c2">
+<div><label>Nome</label><input id="nome"></div>
+<div><label>Classe</label><input></div>
+<div><label>Raça</label><input></div>
+<div class="g c2"><div><label>Idade</label><input></div><div><label>Altura</label><input></div></div>
+</div>
+
+<h2>✦ Atributos</h2>
+<div class="g c3">
+<div class="attr"><b>Força</b><input></div>
+<div class="attr"><b>Destreza</b><input></div>
+<div class="attr"><b>Constituição</b><input></div>
+<div class="attr"><b>Carisma</b><input></div>
+<div class="attr"><b>Sabedoria</b><input></div>
+<div class="attr"><b>Inteligência</b><input></div>
+</div>
+<div class="g c2" style="margin-top:3mm">
+<div class="attr"><b>Fratura</b><input></div>
+<div class="attr"><b>Deslocamento</b><input></div>
+</div>
+<h3>Marca da morte</h3>
+<textarea rows="5" style="width:100%;height:32mm"></textarea>
+
+<h2>❖ Recursos</h2>
+<div class="g c2">
+<div class="res"><b>♥ Vida</b><div class="v"><input> / <input></div></div>
+<div class="res"><b>🛡 CA</b><div class="v"><input></div></div>
+<div class="res"><b>☽ Sanidade</b><div class="v"><input> / <input></div></div>
+<div class="res"><b>✧ Mana</b><div class="v"><input> / <input></div></div>
+<div class="res"><b>⚡ Vigor</b><div class="v"><input> / <input></div></div>
+<div class="res"><b>◎ Pontos de concentração</b><div class="v"><input> / <input></div></div>
+<div class="res"><b>☸ Pontos espiritual</b><div class="v"><input> / <input></div></div>
+<div class="res"><b>➶ Ponto de esquiva</b><div class="v"><input> / <input></div></div>
+</div>
+<div class="pn"></div>
+</section>
+
+<!-- PÁGINA 2 -->
+<section class="page">
+<div class="run"><span>✠ Ficha de Personagem — <span class="hn">________</span></span><span>Habilidades</span></div>
+<h2>✦ Habilidades por nível</h2>
+
+<div class="lv"><div class="t">Nível 1</div><div class="in">
+<div class="hab"><div class="r"><div><label>Nome</label><input value="Passiva"></div><div><label>Tipo</label><input></div><div><label>Custo</label><input></div></div>
+<label>Descrição / Efeitos</label><textarea rows="5" style="width:100%;height:27mm">Uma vez no dia pode moldar os próprios raios de sol em um lingote de ferro.
+
+Durante o dia, a arma causa 1d4 de dano extra e durante a noite 1d4 a menos.</textarea></div>
+<div class="hab"><div class="r"><div><label>Nome</label><input value="Criar e moldar ferro"></div><div><label>Tipo</label><input></div><div><label>Custo</label><input></div></div>
+<label>Descrição / Efeitos</label><textarea rows="5" style="width:100%;height:30mm">Pode produzir uma quantidade suficiente para fazer um prego por dia.
+
+Pode moldar ferro para criar armas simples.
+Exemplo: Alabarda: 1d8</textarea>
+<label style="margin-top:1.5mm">Observações</label><input></div>
+</div></div>
+
+<div class="lv"><div class="t">Nível 2</div><div class="in"><div class="hab"><div class="r"><div><label>Nome</label><input value="Conhecimento sobre matérias"></div><div><label>Tipo</label><input></div><div><label>Custo</label><input></div></div>
+<label>Descrição / Efeitos</label><textarea style="width:100%;height:18mm">Sabe o material usado em qualquer item.</textarea>
+<label style="margin-top:1.5mm">Observações</label><input></div></div></div>
+
+<div class="lv"><div class="t">Nível 3</div><div class="in"><div class="hab"><div class="r"><div><label>Nome</label><input value="Criar material"></div><div><label>Tipo</label><input></div><div><label>Custo</label><input value="50 de mana"></div></div>
+<label>Descrição / Efeitos</label><textarea style="width:100%;height:36mm">Pode criar materiais a partir de matérias inferiores.
+
+Exemplos:
+• Couro batido a partir de peles de animais.
+• Ferro a partir de minério de ferro.
+Sem a necessidade de processá-lo.</textarea>
+<label style="margin-top:1.5mm">Observações</label><input></div></div></div>
+
+<div class="lv"><div class="t">Nível 4</div><div class="in"><div class="hab"><div class="r"><div><label>Nome</label><input value="Melhoria de arma"></div><div><label>Tipo</label><input></div><div><label>Custo</label><input></div></div>
+<label>Descrição / Efeitos</label><textarea style="width:100%;height:18mm">Pode melhorar o nível das armas com mais eficiência.</textarea>
+<label style="margin-top:1.5mm">Observações</label><input></div></div></div>
+
+<div class="lv"><div class="t">Nível 5</div><div class="in"><div class="hab"><div class="r"><div><label>Nome</label><input></div><div><label>Tipo</label><input></div><div><label>Custo</label><input></div></div>
+<label>Descrição / Efeitos</label><textarea style="width:100%;height:30mm"></textarea>
+<label style="margin-top:1.5mm">Observações</label><input></div></div></div>
+<div class="pn"></div>
+</section>
+
+<!-- PÁGINA 3 -->
+<section class="page">
+<div class="run"><span>✠ Ficha de Personagem — <span class="hn">________</span></span><span>Habilidades inatas · Voluntas Siderum</span></div>
+<h2>✦ Habilidades especiais / Inatas</h2>
+<div class="hab" style="background:#fff"><div class="r"><div><label>Nome</label><input></div><div><label>Tipo</label><input></div><div><label>Custo</label><input></div></div>
+<label>Descrição / Efeitos</label><textarea style="width:100%;height:30mm"></textarea><label style="margin-top:1.5mm">Observações / anotações adicionais</label><textarea style="width:100%;height:18mm"></textarea></div>
+<div class="hab" style="background:#fff"><div class="r"><div><label>Nome</label><input></div><div><label>Tipo</label><input></div><div><label>Custo</label><input></div></div>
+<label>Descrição / Efeitos</label><textarea style="width:100%;height:30mm"></textarea></div>
+<p style="font-size:9pt;color:var(--grey);margin:1mm 0 5mm">O Sistema Nemesis e a Voluntas Siderum possuem seções próprias nas páginas seguintes.</p>
+
+<div class="vs">
+<h2>☄ VOLUNTAS SIDERUM</h2>
+<p><b>Nome:</b> Voluntas siderum</p>
+<p><b>Descrição:</b> O usuário é capaz de mover, levitar ou destruir qualquer coisa com o poder da mente, além de poder, por exemplo, causar impacto com ondas telecinéticas, causar asfixia em oponentes ou se proteger de grandes impactos.</p>
+<p><b>Consome:</b> Concentração · Vigor · Mana equivalente ao tamanho do objeto</p>
+<div class="g c3" style="margin:3mm 0">
+<div class="pill">Objeto pequeno<i>10%</i></div>
+<div class="pill">Objeto médio<i>25%</i></div>
+<div class="pill">Objeto grande<i>50%</i></div>
+</div>
+<p><b>Asfixia:</b> Rolagem de Sabedoria com vantagem contra Força do inimigo.</p>
+<label style="margin-top:3mm">Observações / anotações adicionais</label>
+<textarea style="width:100%;height:50mm;background:transparent"></textarea>
+</div>
+<div class="pn"></div>
+</section>
+
+<!-- PÁGINA 4 -->
+<section class="page">
+<div class="run"><span>✠ Ficha de Personagem — <span class="hn">________</span></span><span>Armamento Mágico</span></div>
+<h2>⚔ Armamento Mágico</h2>
+<p style="line-height:1.4;margin:0 0 2mm"><b>Nome:</b> Armamento Mágico</p>
+<p style="line-height:1.4;margin:0 0 2mm"><b>Descrição:</b> O usuário é capaz de criar armas mágicas ou de ser possuidor delas, usando-as em combate para favorecê-lo ofensiva e defensivamente.</p>
+<p style="line-height:1.4;margin:0 0 2mm">Por serem armas, elas concedem um uso facilitado de capacidades mágicas a guerreiros hábeis em usá-las, mesmo que eles não possuam um nível de domínio místico tão grande.</p>
+<p style="line-height:1.4;margin:0 0 2mm">As armas podem possuir as mais diversas formas: espadas, escudos, arcos, lanças etc., combinando o combate físico ao mágico.</p>
+<p style="line-height:1.4;margin:0 0 3mm;border-left:4px solid var(--gold);padding-left:3mm"><b>Observação:</b> A força da arma criada e seu efeito aumentam de acordo com o entendimento do usuário sobre a arma criada.</p>
+
+<h3>Tabela de armas</h3>
+<table>
+<thead><tr><th>Tipo de arma</th><th>Dano base</th><th>Efeito</th><th>Observações</th></tr></thead>
+<tbody>
+<tr><td>Escudos</td><td>—</td><td>x2 de mana para mana física; x4 para perfurante e necrótico</td><td><input></td></tr>
+<tr><td>Armas de haste</td><td>1d8x5+1d4</td><td></td><td><input></td></tr>
+<tr><td>Espada curta</td><td>1d6x5+1d4</td><td></td><td><input></td></tr>
+<tr><td>Espada longa</td><td>1d10x5+1d4</td><td></td><td><input></td></tr>
+<tr><td>Greatsword e martelos de guerra</td><td>1d12x5+1d4</td><td></td><td><input></td></tr>
+<tr><td>Arco curto</td><td>1d8x5+1d4</td><td></td><td><input></td></tr>
+<tr><td>Arco longo</td><td>1d12x5+1d4</td><td></td><td><input></td></tr>
+<tr><td>Besta</td><td>1d8x5+1d6</td><td></td><td><input></td></tr>
+<tr><td>Adaga</td><td>1d4x5+1d4</td><td></td><td><input></td></tr>
+<tr><td>Kunai / faca de arremesso</td><td>1d4x5+1d6</td><td></td><td><input></td></tr>
+<tr><td>Espada curva / cimitarra</td><td>1d6x5+1d4</td><td></td><td><input></td></tr>
+<tr><td>Machado de batalha</td><td>1d10x5+1d4</td><td></td><td><input></td></tr>
+<tr><td>Machado duplo</td><td>1d6x5+1d6</td><td>Caso acerte um ataque, pode tentar acertar outro.</td><td><input></td></tr>
+<tr><td>Arremesso / lança de arremesso / javelin</td><td>1d8x5+1d4</td><td></td><td><input></td></tr>
+<tr><td>Chakram / lâmina circular</td><td>1d10x5+1d6</td><td>Caso arremesse, volta em sua direção. É necessário um teste de Destreza DT 10 + sua Destreza. Se não passar, recebe metade do dano da arma.</td><td><input></td></tr>
+<tr><td>Corrente / kusarigama</td><td>1d6x5+1d6</td><td>3 metros de alcance.</td><td><input></td></tr>
+<tr><td>Foice</td><td>1d6x5+1d6</td><td>Chance de hemorragia. O inimigo faz um teste DT 10 + Destreza. Se não passar, recebe 1d4 de sangramento.</td><td><input></td></tr>
+<tr><td>Lança longa / pique</td><td>1d10x5+1d4</td><td>2,5 metros de alcance.</td><td><input></td></tr>
+<tr><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+<tr><td><input></td><td><input></td><td><input></td><td><input></td></tr>
+</tbody></table>
+<div class="pn"></div>
+</section>
+
+<!-- PÁGINA 5 -->
+<section class="page">
+<div class="run"><span>✠ Ficha de Personagem — <span class="hn">________</span></span><span>Armas criadas · Anotações do armamento</span></div>
+<h2>⚔ Minhas armas mágicas</h2>
+<div class="g c2">
+<div class="hab"><label>Arma / forma</label><input><label>Dano</label><input><label>Efeito</label><textarea style="width:100%;height:30mm"></textarea></div>
+<div class="hab"><label>Arma / forma</label><input><label>Dano</label><input><label>Efeito</label><textarea style="width:100%;height:30mm"></textarea></div>
+<div class="hab"><label>Arma / forma</label><input><label>Dano</label><input><label>Efeito</label><textarea style="width:100%;height:30mm"></textarea></div>
+<div class="hab"><label>Arma / forma</label><input><label>Dano</label><input><label>Efeito</label><textarea style="width:100%;height:30mm"></textarea></div>
+</div>
+<h3>Anotações sobre o armamento</h3>
+<div class="lines"><textarea style="height:105mm"></textarea></div>
+<div class="pn"></div>
+</section>
+
+<!-- PÁGINA 6 -->
+<section class="page">
+<div class="run"><span>✠ Ficha de Personagem — <span class="hn">________</span></span><span>Sistema Nemesis</span></div>
+<div class="nem">
+<h2>☠ SISTEMA NEMESIS — A MALÍCIA DO AUTOR</h2>
+<p><b>Habilidade Inata:</b> Sistema Nemesis (A Malícia do Autor)</p>
+<div class="m"><div><label>Tipo</label><b>Passiva Permanente</b></div><div><label>Custo</label><b>Nenhum</b></div><div><label>Recurso</label><b>Sobrevivência</b></div></div>
+<p><b>Descrição:</b> Uma marca de dificuldade extrema imposta por "Aurélio Sol".</p>
+<p>Esta habilidade transforma a existência do usuário em um teste de resistência pura, removendo todas as proteções que o sistema normalmente ofereceria a um "protagonista" em troca de um potencial de recompensa transcendente no futuro.</p>
+<h3>Efeitos da Habilidade</h3>
+<h3>Vazio de Protagonismo</h3>
+<ul><li>O usuário perde permanentemente o Privilégio de Protagonista.</li>
+<li>Não há proteções narrativas ou "sorte do destino" que impeçam a morte definitiva em situações fatais fora de combate.</li>
+<li>O sistema não fornece auxílios, bônus de experiência compartilhada ou suportes de interface para aliados.</li></ul>
+<h3>Restrição de Utilidade</h3>
+<ul><li><b>Mapa desbloqueado:</b> Consegue abrir um mapa e observar locais e estruturas como um mapa de cima.</li>
+<li><b>Incapaz de detectar inimigos:</b> Desbloqueia no nível 5 a capacidade de detectar inimigos de nível igual ou inferior em um raio de 1 km.</li></ul>
+<h3>Carga Precária</h3>
+<p>O inventário é limitado e o Privilégio de "Vida Boa" (recursos iniciais de conforto) foi totalmente retirado, forçando o início em pobreza extrema.</p>
+<h3>Lei do Alto Risco</h3>
+<p>Como compensação por viver sob o modo de dificuldade mais alto ("Precário"), o usuário ganha acesso ao maior escalão de recompensas e evolução física/mental disponíveis, caso sobreviva aos obstáculos impostos.</p>
+</div>
+<h3>Observações / anotações adicionais</h3>
+<div class="lines"><textarea style="height:55mm"></textarea></div>
+<div class="pn"></div>
+</section>
+
+<!-- PÁGINA 7 INVENTÁRIO 1 -->
+<section class="page">
+<div class="run"><span>✠ Ficha de Personagem — <span class="hn">________</span></span><span>Inventário (1/2)</span></div>
+<h2>🎒 Inventário</h2>
+<div class="g c2" style="margin-bottom:3mm">
+<div><label>Moedas</label><input style="font-size:14pt;font-weight:bold"></div>
+<div><label>Capacidade do inventário</label><input style="font-size:14pt;font-weight:bold"><label style="margin-top:1mm">Regra de capacidade: 5x a Força ou Constituição</label></div>
+</div>
+<h3>Equipamentos</h3>
+<div class="inv" id="eq" style="grid-template-columns:repeat(4,1fr)"></div>
+<h3>Itens</h3>
+<div class="inv" id="itens" style="grid-template-columns:repeat(5,1fr)"></div>
+<div class="pn"></div>
+</section>
+
+<!-- PÁGINA 8 INVENTÁRIO 2 -->
+<section class="page">
+<div class="run"><span>✠ Ficha de Personagem — <span class="hn">________</span></span><span>Inventário (2/2)</span></div>
+<h3>Itens especiais</h3>
+<div class="inv" id="esp" style="grid-template-columns:repeat(3,1fr)"></div>
+<h3>Materiais</h3>
+<div class="inv" id="mat" style="grid-template-columns:repeat(5,1fr)"></div>
+<h3>Itens diversos</h3>
+<div class="inv" id="div" style="grid-template-columns:repeat(5,1fr)"></div>
+<div class="pn"></div>
+</section>
+
+<!-- PÁGINA 9 MISTÉRIOS -->
+<section class="page">
+<div class="run"><span>✠ Ficha de Personagem — <span class="hn">________</span></span><span>Anotações / Mistérios</span></div>
+<h2>☽ Anotações / Mistérios</h2>
+<div class="myst"><b>1.</b> Quando a lua sangrenta tocar o céu e a névoa envolver a floresta esquecida, o Caminhante de Ossos deverá traçar o Círculo do Lamento com sangue vivo. Apenas então o Guardião das Sombras poderá despertar.</div>
+<div class="myst"><b>2.</b> Lobis, que vagueia entre a carne e a sombra, escuta o chamado que rasga os véus do mundo. Traz a fúria que dorme no âmago da noite, Marca o teu nome na carne que sangra, e surge.</div>
+<div class="myst"><b>3.</b> Servo retornado.</div>
+<div class="myst"><b>4.</b> Draisho.</div>
+<h3>Novas anotações</h3>
+<div class="lines"><textarea style="height:150mm"></textarea></div>
+<div class="pn"></div>
+</section>
+
+<!-- PÁGINA 10 PAUTADA -->
+<section class="page">
+<div class="run"><span>✠ Ficha de Personagem — <span class="hn">________</span></span><span>Diário · Missões · NPCs · Locais · Lore</span></div>
+<h2>✎ Anotações livres</h2>
+<div class="lines"><textarea style="height:235mm"></textarea></div>
+<div class="pn"></div>
+</section>
+
+<!-- PÁGINA 11 QUADRICULADA -->
+<section class="page">
+<div class="run"><span>✠ Ficha de Personagem — <span class="hn">________</span></span><span>Mapas · Esquemas · Informações secretas</span></div>
+<h2>▦ Papel quadriculado</h2>
+<div class="grid"><textarea style="height:235mm"></textarea></div>
+<div class="pn"></div>
+</section>
+
+<script>
+function slot(o){o=o||{};var d=document.createElement('div');d.className='slot'+(o.w?' wide':'')+(o.b?' big':'');
+d.innerHTML='<input class="q" placeholder="Qtd" value="'+(o.q||'')+'"><textarea class="d" placeholder="Escreva ou desenhe">'+(o.d||'')+'</textarea><input class="n" placeholder="Nome do item" value="'+(o.n||'')+'">';return d}
+function fill(id,n,opt,first){var c=document.getElementById(id);(first||[]).forEach(function(o){c.appendChild(slot(o))});for(var i=(first||[]).length;i<n;i++)c.appendChild(slot(opt))}
+fill('eq',8,{b:1});
+fill('itens',40,{},[{q:1,n:'Coração de lobo mutante danificado'},{q:1,n:'Essência de Lótus do Gelo',w:1,d:'Uma flor que nunca murcha, mesmo no frio extremo. Consumir suas pétalas confere resistência a dano de gelo por 1h.'},{q:1,n:'Mortos ceros'}]);
+fill('esp',6,{b:1});
+fill('mat',20,{});
+fill('div',20,{});
+// o slot largo ocupa 2 posições: remove um slot comum para manter 40 no total
+var it=document.getElementById('itens');it.removeChild(it.lastChild);
+var ps=document.querySelectorAll('.page');
+ps.forEach(function(p,i){p.querySelector('.pn').textContent='— Página '+(i+1)+' de '+ps.length+' —'});
+var nome=document.getElementById('nome');
+nome.addEventListener('input',function(){document.querySelectorAll('.hn').forEach(function(s){s.textContent=nome.value||'________'})});
+// mantém o texto digitado visível na impressão
+window.addEventListener('beforeprint',function(){document.querySelectorAll('input,textarea').forEach(function(e){if(e.tagName=='INPUT')e.setAttribute('value',e.value);else e.textContent=e.value})});
+</script>
+</body>
+</html>
